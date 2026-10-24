@@ -1,0 +1,8 @@
+Statistik Total transaksi (tanpa pesanan grosir)
+Mean   : Rp 2,212,293
+Median : Rp 635,000
+Std    : Rp 4,385,968
+Q1/Q3  : Rp 244,000 / Rp 2,091,000  (IQR = 1,847,000)
+Mean > Median -> distribusi miring kanan (ada transaksi besar seperti laptop)
+Korelasi Harga vs Qty : -0.03
+Total omzet: Rp 4,418,168,000 | Omzet grosir: Rp 232,510,000

@@ -1,0 +1,9 @@
+Baris awal: 1930
+1. Duplikat dihapus: 30
+2. Tanggal diseragamkan, gagal diparse: 0
+3. Kota kosong -> 'Tidak diketahui': 40
+4. Metode_Bayar kosong -> 'Tidak diketahui': 60
+5. Harga outlier (salah ketik) dijadikan kosong: 15
+6. Harga kosong diisi median per produk: 40
+7. Pesanan grosir (Qty>=50) ditandai, tidak dihapus: 8
+Baris akhir: 1900

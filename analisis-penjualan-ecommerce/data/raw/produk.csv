@@ -1,0 +1,17 @@
+ID_Produk,Nama_Produk,Kategori,Harga_Dasar
+P01,Laptop Gaming,Laptop,15000000
+P02,Laptop Kantor,Laptop,8000000
+P03,Smartphone A,Smartphone,5000000
+P04,Smartphone B,Smartphone,3000000
+P05,Tablet,Tablet,4000000
+P06,Earbuds,Audio,500000
+P07,Headphone,Audio,900000
+P08,Smartwatch,Wearable,1500000
+P09,Powerbank,Aksesoris,250000
+P10,Charger,Aksesoris,150000
+P11,Kabel USB,Aksesoris,50000
+P12,Mouse,Aksesoris,200000
+P13,Keyboard,Aksesoris,400000
+P14,Monitor,Monitor,2500000
+P15,Webcam,Aksesoris,450000
+P16,Speaker,Audio,700000
