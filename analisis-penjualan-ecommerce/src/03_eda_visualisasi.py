@@ -1,4 +1,3 @@
-"""Statistik deskriptif + visualisasi (Materi 2, 6, 7)."""
 import pandas as pd
 import matplotlib.pyplot as plt
 
@@ -13,7 +12,6 @@ produk = pd.read_csv("data/raw/produk.csv")
 df = df.merge(produk[["ID_Produk", "Nama_Produk", "Kategori"]], on="ID_Produk")
 jt = lambda x: x / 1e6   # ke juta rupiah
 
-# ---------- 1. Statistik deskriptif ----------
 normal = df[~df["Grosir"]]
 tot = normal["Total"]
 q1, q3 = tot.quantile(0.25), tot.quantile(0.75)
@@ -34,7 +32,6 @@ def simpan(nama):
     plt.savefig(f"output/charts/{nama}.png")
     plt.close()
 
-# ---------- 2. Tren omzet bulanan (line) ----------
 bln = df.groupby("Bulan")["Total"].sum().apply(jt)
 plt.figure(figsize=(8, 4))
 plt.plot(bln.index, bln.values, color=BIRU, lw=2, marker="o", ms=6)
@@ -47,7 +44,6 @@ plt.ylim(0, None)
 plt.grid(axis="y", color="#e5e5e5")
 simpan("01_tren_omzet_bulanan")
 
-# ---------- 3. Omzet per kategori (bar) ----------
 kat = df.groupby("Kategori")["Total"].sum().apply(jt).sort_values()
 plt.figure(figsize=(8, 4))
 plt.barh(kat.index, kat.values, color=BIRU)
@@ -57,7 +53,6 @@ plt.title("Laptop & Smartphone menyumbang >55% omzet", loc="left", fontweight="b
 plt.xlabel("Omzet (juta Rp)")
 simpan("02_omzet_per_kategori")
 
-# ---------- 4. Omzet per kota (bar) ----------
 kota = df[df["Kota"] != "Tidak diketahui"].groupby("Kota")["Total"].sum().apply(jt).sort_values()
 plt.figure(figsize=(8, 4))
 warna = [ORANYE if k == "Jakarta" else BIRU for k in kota.index]
@@ -68,7 +63,6 @@ plt.title("Jakarta adalah pasar terbesar", loc="left", fontweight="bold")
 plt.xlabel("Omzet (juta Rp)")
 simpan("03_omzet_per_kota")
 
-# ---------- 5. Metode bayar (pie, 5 kategori) ----------
 mb = df["Metode_Bayar"].value_counts()
 warna_mb = {"E-Wallet": BIRU, "Transfer": ORANYE, "COD": TEAL, "Kartu Kredit": UNGU, "Tidak diketahui": ABU}
 plt.figure(figsize=(6, 4.5))
@@ -78,7 +72,6 @@ plt.pie(mb.values, labels=mb.index, colors=[warna_mb[m] for m in mb.index], auto
 plt.title("E-Wallet jadi metode bayar favorit", loc="left", fontweight="bold")
 simpan("04_metode_bayar")
 
-# ---------- 6. Distribusi total transaksi (histogram) ----------
 plt.figure(figsize=(8, 4))
 plt.hist(jt(tot[tot <= tot.quantile(0.99)]), bins=30, color=BIRU, edgecolor="white")
 plt.axvline(jt(tot.mean()), color=ORANYE, lw=2, label=f"Mean {jt(tot.mean()):.1f} jt")
@@ -89,7 +82,6 @@ plt.ylabel("Jumlah transaksi")
 plt.legend(frameon=False)
 simpan("05_distribusi_transaksi")
 
-# ---------- 7. Harga vs unit terjual per produk (scatter) ----------
 p = df.groupby("Nama_Produk").agg(unit=("Qty", "sum"), harga=("Harga", "median"))
 plt.figure(figsize=(8, 4.5))
 plt.scatter(jt(p["harga"]), p["unit"], color=BIRU, s=60)
