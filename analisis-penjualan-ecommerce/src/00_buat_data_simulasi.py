@@ -1,10 +1,8 @@
-"""Membuat data SIMULASI toko elektronik online (sengaja dibuat kotor)."""
 import numpy as np
 import pandas as pd
 
 np.random.seed(42)
 
-# ---- tabel produk ----
 produk = pd.DataFrame({
     "ID_Produk": [f"P{i:02d}" for i in range(1, 17)],
     "Nama_Produk": ["Laptop Gaming", "Laptop Kantor", "Smartphone A", "Smartphone B",
@@ -19,7 +17,6 @@ produk = pd.DataFrame({
                     200_000, 400_000, 2_500_000, 450_000, 700_000],
 })
 
-# ---- tabel transaksi ----
 n = 1500
 kota = np.random.choice(["Jakarta", "Bandung", "Surabaya", "Medan", "Makassar", "Bandar Lampung"],
                         n, p=[0.30, 0.18, 0.18, 0.14, 0.10, 0.10])
@@ -42,7 +39,6 @@ df = pd.DataFrame({
 df = df.sample(frac=1, random_state=1).reset_index(drop=True)
 df["ID_Transaksi"] = [f"T{i:05d}" for i in range(1, n + 1)]
 
-# ---- sengaja dikotori (mirip Materi 3) ----
 idx = lambda k: np.random.choice(df.index, k, replace=False)
 df["Tanggal"] = df["Tanggal"].dt.strftime("%Y-%m-%d")
 
