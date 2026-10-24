@@ -19,7 +19,7 @@ Kapan, di mana, dan produk apa yang paling menghasilkan omzet, agar strategi sto
 | Excel | SUMIFS, COUNTIF, VLOOKUP, IFERROR |
 | Dashboard & storytelling | KPI, layout, insight |
 
-## Hasil Cleaning (`output/cleaning_log.txt`)
+## Hasil Cleaning
 1.930 baris → **1.900 baris**: 30 duplikat dibuang, format tanggal & nama kota diseragamkan, 100 nilai kosong ditangani, 15 harga salah ketik, 8 pesanan grosir ditandai (tidak dihapus karena valid).
 
 ## Dashboard
