@@ -1,4 +1,3 @@
-"""Muat data bersih ke SQLite, jalankan semua query di sql/analisis.sql (Materi 5)."""
 import sqlite3
 import pandas as pd
 
